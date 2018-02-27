@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var bodyParser = require('body-parser');
 var {ObjectID} = require('mongodb');
 
@@ -9,6 +10,7 @@ var {User} = require('./models/user');
 var app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/todos', async (req, res) => {
